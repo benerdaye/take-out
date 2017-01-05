@@ -93,7 +93,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../../common/stylus/mixin'
 
-  .hader
+  .header
     position relative
     overflow  hidden
     color #fff
@@ -129,6 +129,7 @@
           line-height 12px
           font-size  12px
         .support
+          padding-bottom 10px
           .icon
             display inline-block
             width 12px
@@ -152,7 +153,7 @@
       .support-count
         position absolute
         right 12px
-        bottom 18px
+        bottom 50px
         padding 0 8px
         height 24px
         line-height 24px
