@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import goods from 'components/goods/goods.vue'
 import ratings from 'components/rarings/ratings.vue'
 import seller from 'components/seller/seller.vue'
+import 'common/stylus/index.styl'
+
 Vue.use(VueRouter)
 let app=Vue.extend(App)
 let router=new VueRouter({
