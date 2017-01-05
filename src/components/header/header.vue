@@ -18,11 +18,11 @@
         <span class="text">{{seller.supports[0].description}}</span>
       </div>
     </div>
-    <div class="support-count" v-if="seller.supports">
+    <div class="support-count" v-if="seller.supports" @click="showDetail">
       <span class="count">{seller.supports.length个{</span>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
-    <div class="bulletin-wrapper">
+    <div class="bulletin-wrapper" @click="showDetail">
       <span class="bulletin-title"></span>
       <span class="bulletin-text">{ seller.bulletin{</span>
       <i class="icon-keyboard_arrow_right"></i>
