@@ -10,27 +10,27 @@ import 'common/stylus/index.styl'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
-let app=Vue.extend(App)
-let router=new VueRouter({
+let app = Vue.extend(App)
+let router = new VueRouter({
   linkActiveClass: 'active'
 })
 
-//定义路由——组件映射
+// 定义路由——组件映射
 router.map({
   '/goods': {
-    components: goods
+    component: goods
   },
   '/ratings': {
-    components: ratings
-  }
+    component: ratings
+  },
   '/seller': {
-    components: seller
+    component: seller
   }
 })
 
-//挂载路由
-router.start(app,'#app')
+// 挂载路由
+router.start(app, '#app')
 
-//跳转到/goods
-router.go('goods')
+// 跳转到/goods
+router.go('/goods')
 

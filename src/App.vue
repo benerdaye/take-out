@@ -10,10 +10,11 @@
   </div>
 </template>
 
-
 <script>
 import header from 'components/header/header.vue'
-const ERR_OK=0
+
+const ERR_OK = 0
+
 export default {
   data () {
     return {
@@ -21,33 +22,35 @@ export default {
     }
   },
   created () {
-    this.$http.get('/api/seller').then((response) =>{
-      response=response.body
-      if (response.errno === ERR_OK){
-        $(this).seller=response.data
+    this.$http.get('/api/seller').then((response) => {
+      response = response.body
+      if (response.errno === ERR_OK) {
+        this.seller = response.data
       }
     })
   },
-  components:{
+  components: {
     'v-header': header
   }
 }
 </script>
 
-<style>
-  .tab
-    display flex
-    width 100%
-    height 40px
-    line-height 40px
-    border-1px(rgba(7,17,27,0.1))
-    .tab-item
-      flex 1
-      text-align center
-      & > a
-        display block
-        font-size 14px
-        color rbg(77,85,93)
-        &.active
-          color rgb(240, 20, 20)
+<style lang="stylus" scoped>
+@import './common/stylus/mixin'
+
+.tab
+  display flex
+  width 100%
+  height 40px
+  line-height 40px
+  border-1px(rgba(7,17,27,0.1))
+  .tab-item
+    flex 1
+    text-align center
+    & > a
+      display block
+      font-size 14px
+      color rbg(77,85,93)
+      &.active
+        color rgb(240, 20, 20)
 </style>

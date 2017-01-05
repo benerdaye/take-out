@@ -25,12 +25,12 @@
       },
       itemClasses () {
         let result = []
-        let score = Math.floor(this.score*2)/2
-        for (let i = Math.floor(score);i--;){
+        let score = Math.floor(this.score * 2) / 2
+        for (let i = Math.floor(score); i--;) {
           result.push(CLS_ON)
         }
         Number.isInteger(score) || result.push(CLS_HALF)
-        which (result.length < LENGTH){
+        while (result.length < LENGTH) {
           result.push(CLS_OFF)
         }
         return result
