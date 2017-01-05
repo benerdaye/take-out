@@ -1,14 +1,12 @@
 <template>
-  <div id="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
+  <div>
     <v-header></v-header>
     <div class="tab">
-      <div class="tab-item">商品</div>
-      <div class="tab-item">评论</div>
-      <div class="tab-item">商家</div>
+      <a v-link="{path:'/goods'}">商品</a>
+      <a v-link="{path:'/ratings'}">评论</a>
+      <a v-link="{path:'/seller'}">商家</a>
     </div>
-    <div class="content">I am content</div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -23,13 +21,18 @@ export default{
 </script>
 
 <style>
-  #app
-    .tab
-      display: flex
-      width: 100%
-      height: 40px
-      line-height: 40px
-      .tab-item
-        flex: 1
-        text-align: center
+  .tab
+    display flex
+    width 100%
+    height 40px
+    line-height 40px
+    .tab-item
+      flex 1
+      text-align center
+      & > a
+        display block
+        font-size 14px
+        color rbg(77,85,93)
+        &.active
+          color rgb(240, 20, 20)
 </style>
