@@ -8,7 +8,7 @@ border-1px($color)
     border-top 1px solid $color
     content ''
 
-bf-image($url)
+bg-image($url)
   background-image url(#url + '@2x.png')
   @media (-webkit-min-device-pixel-ratio:3), (min-device-pixel-ratio:3)
     background-image url($url + '@3x.png')
@@ -27,3 +27,4 @@ star-items($size, $interspace)
     bg-image(s('star%s_half', $size))
   &.off
     bg-image(s('star%s_off', $size))
+
