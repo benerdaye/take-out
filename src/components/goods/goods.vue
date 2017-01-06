@@ -1,15 +1,15 @@
 <template>
   <div class="goods">
-    <div class="menu-wrapper">
+    <div class="menu-wrapper" v-el:menu-wrapper>
       <ul>
-        <li v-for="item in goods" class="menu-item">
-          <span class="text border-1px">
+        <li v-for="item in goods" class="menu-item border-1px">
+          <span class="text">
             <span v-show="item.type > 0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
           </span>
         </li>
       </ul>
     </div>
-    <div class="foods-wrapper">
+    <div class="foods-wrapper" v-el:foods-wrapper>
       <ul>
         <li v-for="item in goods" class="food-list">
           <h1 class="title">{{item.name}}</h1>
@@ -39,12 +39,18 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll'
   const ERR_OK = 0
 
   export default {
     props: {
       seller: {
         type: Object
+      }
+    },
+    methods: {
+      _initScroll () {
+        this.menuScroll = new BScroll(this.$els.menuWrapper, {})
       }
     },
     data () {
@@ -58,7 +64,9 @@
         response = response.body
         if (response.errno === ERR_OK) {
           this.goods = response.data
-          console.dir(this.goods)
+          this.$nextTick(() => {
+            this._initScroll()
+          })
         }
       })
     }
@@ -106,6 +114,7 @@
           display table-cell
           width 56px
           vertocal-align bottom
+          padding-bottom 10px
           border-1px(rgba(7, 17, 27, 0.1))
           font-size 12px
     .foods-wrapper
@@ -132,8 +141,9 @@
         .content
           flex 1
           .name
-            margin 2px 0 8px
+            margin 2px 0 8px 0
             height 14px
+            line-height 1
             font-size 14px
             color rgb(7, 17, 27)
           .desc, .extra
@@ -143,7 +153,7 @@
           .desc
             margin-bottom 8px
           .extra
-            &.count
+            .count
               margin-right 12px
           .price
             font-weight 700
