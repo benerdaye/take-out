@@ -119,6 +119,7 @@
             height 18px
             bg-image('brand')
             background-repeat  no-repeat
+            background-size cover
           .name
             margin-left 6px
             font-size 16px
@@ -134,6 +135,7 @@
             display inline-block
             width 12px
             height 12px
+            vertical-align bottom
             margin-right 4px
             background-size 12px 12px
             background-repeat no-repeat
@@ -184,6 +186,7 @@
         height 12px
         bg-image('bulletin')
         background-repeat no-repeat
+        background-size cover
       .bulletin-text
         vertical-align top
         margin 0 4px
