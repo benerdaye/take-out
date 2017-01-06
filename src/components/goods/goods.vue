@@ -2,8 +2,8 @@
   <div class="goods">
     <div class="menu-wrapper" v-el:menu-wrapper>
       <ul>
-        <li v-for="item in goods" class="menu-item border-1px">
-          <span class="text">
+        <li v-for="item in goods" class="menu-item" :class="{'active':currentIndex === $index}" @click="selectMenu($index, $event)">
+          <span class="text border-1px">
             <span v-show="item.type > 0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
           </span>
         </li>
@@ -11,7 +11,7 @@
     </div>
     <div class="foods-wrapper" v-el:foods-wrapper>
       <ul>
-        <li v-for="item in goods" class="food-list">
+        <li v-for="item in goods" class="food-list foot-list-hook">
           <h1 class="title">{{item.name}}</h1>
           <ul>
             <li v-for="food in item.foods" class="food-item border-1px">
@@ -50,12 +50,36 @@
     },
     methods: {
       _initScroll () {
-        this.menuScroll = new BScroll(this.$els.menuWrapper, {})
+        this.menuScroll = new BScroll(this.$els.menuWrapper, {
+          click: true
+        })
+        this.foodsScroll = new BScroll(this.$els.foodsWrapper, {
+          probeType: 3
+        })
+        this.foodsScroll.on('scroll', (pos) => {
+          this.scrollY = Math.abs(Math.round(pos.y))
+        })
+      },
+      _calculateHeight () {
+        let foodList = this.$els.foodsWrapper.getElementsByClassName('food-list-hook')
+        for (let i = 0, height = 0; i < foodList.length; i++) {
+          this.listHeight.push(height)
+          height += foodList[i].clientHeight
+        }
+      },
+      selectMenu (index, event) {
+        if (!event._constructed) {
+          return
+        }
+        let foodList = this.$els.foodsWrapper.getElementsByClassName('food-list-hook')
+        this.foodsScroll.scrollToElement(foodList[index], 300)
       }
     },
     data () {
       return {
-        goods: []
+        goods: [],
+        listHeight: [],
+        scrollY: 0
       }
     },
     created () {
@@ -66,12 +90,14 @@
           this.goods = response.data
           this.$nextTick(() => {
             this._initScroll()
+            this._calculateHeight()
           })
         }
       })
     }
   }
 </script>
+
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../../common/stylus/mixin'
   .goods
@@ -93,6 +119,14 @@
         line-height 14px
         padding 5px 12px
         vertocal-align bottom
+        &.active
+          position relative
+          z-index 10
+          margin-top -1px
+          background #fff
+          .text
+            font-weight 700
+            border-none()
         .icon
           display inline-block
           width 12px
