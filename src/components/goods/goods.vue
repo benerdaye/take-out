@@ -38,7 +38,7 @@
         </li>
       </ul>
     </div>
-    <shopcart :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 
@@ -52,6 +52,26 @@
     props: {
       seller: {
         type: Object
+      }
+    },
+    computed: {
+      currentIndex () {
+        for (let i = this.listHeight.length; i--;) {
+          if (this.scrollY >= this.listHeight[i]) {
+            return i
+          }
+        }
+      },
+      selectFoods () {
+        let foods = []
+        this.goods.map((good) => {
+          good.foods.map((food) => {
+            if (food.count) {
+              foods.push(food)
+            }
+          })
+        })
+        return foods
       }
     },
     methods: {
