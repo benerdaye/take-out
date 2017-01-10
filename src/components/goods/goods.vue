@@ -40,13 +40,14 @@
     </div>
     <shopcart v-ref:shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
+  <food :food="selectedFood" v-ref:food></food>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
   import shopcart from 'components/shopcart/shopcart'
   import cartcontrol from 'components/cartcontrol/cartcontrol'
-  // import food from 'components/food/food'
+  import food from 'components/food/food'
   const ERR_OK = 0
 
   export default {
@@ -112,13 +113,13 @@
           return
         }
         this.selectedFood = food
-        // this.$refs.food.show()
+        this.$refs.food.show()
       }
     },
     components: {
       shopcart,
-      cartcontrol
-      // food
+      cartcontrol,
+      food
     },
     events: {
       'cart.add' (target) {

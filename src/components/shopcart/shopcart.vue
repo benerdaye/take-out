@@ -98,7 +98,7 @@
         if (this.totalCount === 0) {
           return `￥ ${this.minPrice}元起送`
         } else if (this.totalPrice < this.minPrice) {
-          return `还差￥ ${this.minPrice - this.tatalPrice}元起送`
+          return `还差￥ ${this.minPrice - this.totalPrice}元起送`
         }else {
           return '去结算'
         }
