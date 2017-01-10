@@ -81,11 +81,13 @@
     components: {
       star
     },
-    showDetail () {
-      this.datailShow = true
-    },
-    hideDetail () {
-      this.detailShow = false
+    methods: {
+      showDetail () {
+        this.datailShow = true
+      },
+      hideDetail () {
+        this.detailShow = false
+      }
     }
   }
 </script>

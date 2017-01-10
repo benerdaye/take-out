@@ -1,9 +1,10 @@
 <template>
   <div class="cartcontrol">
-    <div v-show="food.count > 0" class="cart-decrease" @click="decreaseCart($event)" transition="move">
+    <div v-show="food.count > 0" class="cart-decrease"  @click.stop.prevent="decreaseCart($event)" transition="move">
      <span class="inner icon-remove_circle_outline"></span>
     </div>
-    <div class="cart-add icon-add_circle" @click="addCart($event)"></div>
+    <div v-show="food.count > 0" class="cart-count">{{food.count}}</div>
+    <div class="cart-add icon-add_circle" @click.stop.prevent="addCart($event)"></div>
   </div>
 </template>
 
@@ -32,6 +33,7 @@
         } else {
           this.food.count++
         }
+        this.$dispatch('cart.add', event.target)
       }
     }
   }
@@ -62,17 +64,23 @@
     .cart-count
       display inline-block
       vertical-align  top
-      width 12px
-      padding-top 6px
+      width 24px
+      height 24px
+      padding-top 10px
       line-height 24px
       text-align center
-      fpnt-size 10px
+      font-size 10px
       color rgb(147, 153, 159)
     .cart-add
       display inline-block
-      padding 6px
+      padding-top  6px
       line-height 24px
       font-size 24px
       color rgb(0, 160, 220)
-
+    .icon-remove_circle_outline
+      display inline-block
+      padding-top  6px
+      line-height 24px
+      font-size 24px
+      color rgb(0, 160, 220)
 </style>
