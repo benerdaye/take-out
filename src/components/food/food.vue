@@ -39,13 +39,13 @@
                 <img :src="rating.avater" width="12"
                 height="12" class="avatar" />
               </div>
-              <div class="item">{{rating.rateTime}}</div>
+              <div class="time">{{rating.rateTime | formatDate}}</div>
               <p class="text">
                 <span :class="{'icon-thumb_up': rating.rateType === 0, 'icon-thumb_down': rating.rateType === 1}"></span>{{rating.text}}
               </p>
             </li>
           </ul>
-          <div class="no-rating" v-show="!food.ratings || !food.ratings.length"></div>
+          <div class="no-rating" v-show="!food.ratings || !food.ratings.length">暂无评价</div>
         </div>
       </div>
     </div>
@@ -56,6 +56,7 @@
 <script type="text/ecmascript-6">
   import Vue from 'vue'
   import BScroll from 'better-scroll'
+  import {formatDate} from 'common/js/date'
   import cartcontrol from 'components/cartcontrol/cartcontrol'
   import split from 'components/split/split'
   import ratingselect from 'components/ratingselect/ratingselect'
@@ -99,6 +100,12 @@
           return true
         }
         return type === this.selectType
+      }
+    },
+    filters: {
+      formatDate (time) {
+        let date = new Date(time)
+        return formatDate(date, 'yyyy-MM-dd hh:mm')
       }
     },
     components: {
@@ -276,4 +283,8 @@
                 color rgb(0, 160, 220)
               .icon-thumb_dowm
                 color rgb(147, 153, 159)
+          .no-rating
+            padding 16px 0
+            font-size 12px
+            color rgb(147, 153, 159)
 </style>
