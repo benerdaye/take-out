@@ -22,7 +22,11 @@
         </div>
         <div class="buy" v-show="!food.count || food.count === 0" @click.stop.prevent="addFirst" transition="fade"></div>
       </div>
-      <split></split>
+      <split v-show="food.info"></split>
+      <div class="info">
+        <h1 class="title">商品信息</h1>
+        <p class="text">{{food.info}}</p>
+      </div>
     </div>
 
   </div>
@@ -160,4 +164,16 @@
           opacity 1
         &.fade-enter, &.fase-leave
           opacity 0
+      .info
+        padding 18px
+        .title
+          line-height 14px
+          margin-bottom 6px
+          font-size 14px
+          color rgb(7, 17, 27)
+        .text
+          line-height 24px
+          padding 0 8px
+          font-size 12px
+          color rgb(77, 85, 93)
 </style>
