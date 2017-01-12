@@ -111,7 +111,7 @@
           border-radius 2px
       .content
         display inline-block
-        margin-left 16px
+        margin-left 10px
         .title
           margin 2px 0 8px 0
           .brand
