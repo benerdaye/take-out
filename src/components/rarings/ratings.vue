@@ -1,6 +1,6 @@
 <template>
   <div class="ratings" v-el:rate-scroll>
-    <div class="ratings-content" v-el:rate-scroll>
+    <div class="ratings-content">
       <div class="overview">
         <div class="overview-left">
           <h1 class="score">{{seller.score}}</h1>
@@ -14,6 +14,11 @@
             <span class="score">{{seller.serviceScore}}</span>
           </div>
           <div class="score-wrapper">
+            <span class="title">商品评分</span>
+            <star :size="36" :score="seller.foodScore"></star>
+            <span class="score">{{seller.foodScore}}</span>
+          </div>
+          <div class="delivery-wrapper">
             <span class="title">到达时间</span>
             <span class="delivery">{{seller.deliveryTime}}分钟</span>
           </div>
@@ -34,7 +39,7 @@
                 <span v-show="rating.deliveryTime" class="delivery">{{rating.deliveryTime}}分钟送达</span>
               </div>
               <p class="text">{{rating.text}}</p>
-              <div class="rcommend" v-show="rating.recommend && rating.recommend.length">
+              <div class="recommend" v-show="rating.recommend && rating.recommend.length">
                 <i class="icon-thumb_up"></i>
                 <span v-for="item in rating.recommend" class="item">{{item}}</span>
               </div>
@@ -123,10 +128,6 @@
 </script>
 
 
-
-
-
-
 <style lang="stylus" rel="stylesheet/stylus">
   @import '../../common/stylus/mixin'
 
@@ -165,9 +166,9 @@
           color rgb(147, 153, 159)
       .overview-right
         flex 1
-        padding 6px 0 6px 24px
+        margin-left 24px
         @media only screen and (max-width: 320px)
-          padding-left 6px
+          // margin-left 24px
         .score-wrapper
           margin-bottom: 8px
           font-size: 0
@@ -179,7 +180,8 @@
             line-height: 18px
             color rgb(7, 17, 27)
           .star
-            margin 0 12px
+            width 99px
+            margin 0 15px
           .score
             font-size: 12px
             line-height: 18px
@@ -219,11 +221,12 @@
             font-size 0
             .star
               display inline-block
-              margin-right 6px
+              margin-right 2px
               vertical-align top
           .delivery
             display inline-block
             vertical-align top
+            width 70px
             line-height 12px
             font-size 10px
             color rgb(147, 153, 159)
@@ -234,7 +237,7 @@
             font-size 12px
           .recommend
             line-height 16px
-            font-size 0
+            font-size 9px
             .icon-thumb_up, .item
               display inline-block
               margin 0 8px 4px 0

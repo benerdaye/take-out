@@ -20,7 +20,7 @@
         <div class="cartcontrol-warpper">
           <cartcontrol :food="food"></cartcontrol>
         </div>
-<!--         <div class="buy" v-show="!food.count || food.count === 0" @click.stop.prevent="addFirst" transition="fade"></div> -->
+        <div class="buy" v-show="!food.count || food.count === 0" @click.stop.prevent="addFirst" transition="fade"></div>
       </div>
       <split v-show="food.info"></split>
       <div class="info">
@@ -29,13 +29,13 @@
       </div>
       <split></split>
       <div class="rating">
-        <h1>商品评价</h1>
+        <h1 class="title">商品评价</h1>
         <ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
         <div class="rating-wrapper">
           <ul v-show="food.ratings && food.ratings.length">
             <li v-show="needShow(rating.rateType, rating.text)" v-for="rating in food.ratings" class="rating-item border-1px">
               <div class="user">
-                <span class="name">{{rating.userName}}</span>
+                <span class="name">{{rating.username}}</span>
                 <img :src="rating.avater" width="12"
                 height="12" class="avatar" />
               </div>
@@ -49,7 +49,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -227,64 +226,64 @@
           opacity 1
         &.fade-enter, &.fase-leave
           opacity 0
-      .info
-        padding 25px
-        .title
-          line-height 30px
-          margin-bottom 6px
-          font-size 14px
-          color rgb(7, 17, 27)
-        .text
-          line-height 30px
-          padding 0 8px
-          font-size 12px
-          color rgb(77, 85, 93)
-      .rating
-        padding-top 18px
-        .title
-          line-height 14px
-          margin-left 18px
-          font-size 14px
-          color rgb(7, 17, 27)
-        .rating-wrapper
-         padding 0 18px
-         .rating-item
-           position relative
-           padding 16px 0
-           border-1px(rgba(7, 17, 27, 0.1))
-           .user
-             position absolute
-             right 0
-             top 16px
-             line-height 12px
-             font-size 0
-             .name
-               display inline-block
-               margin-right 6px
-               vertical-align top
-               font-size 10px
-               color rgb(147, 153, 159)
-             .avatar
-               border-radius 50%
-            .time
-              margin-bottom 6px
-              line-height 12px
-              font-size 10px
-              color rgb(147, 153, 159)
-            .text
+    .info
+      padding 25px
+      .title
+        line-height 30px
+        margin-bottom 6px
+        font-size 14px
+        color rgb(7, 17, 27)
+      .text
+        line-height 30px
+        padding 0 8px
+        font-size 12px
+        color rgb(77, 85, 93)
+    .rating
+      padding-top 18px
+      .title
+        line-height 14px
+        margin-left 18px
+        font-size 14px
+        color rgb(7, 17, 27)
+      .rating-wrapper
+       padding 0 18px
+       .rating-item
+         position relative
+         padding 16px 0
+         border-1px(rgba(7, 17, 27, 0.1))
+         .user
+           position absolute
+           right 0
+           top 16px
+           line-height 12px
+           font-size 0
+           .name
+             display inline-block
+             margin-right 6px
+             vertical-align top
+             font-size 10px
+             color rgb(147, 153, 159)
+           .avatar
+             border-radius 50%
+          .time
+            margin-bottom 6px
+            line-height 12px
+            font-size 10px
+            color rgb(147, 153, 159)
+          .text
+            line-height 16px
+            font-size 12px
+            color rgb(7, 17, 27)
+            .icon-thumb_up, .icon-thumb_dowm
+              margin-right 4px
               line-height 16px
               font-size 12px
-              color rgb(7, 17, 27)
-              .icon-thumb_up, .icon-thumb_dowm
-                margin-right 4px
-                line-height 16px
-                font-size 12px
-              .icon-thumb_up
-                color rgb(0, 160, 220)
-              .icon-thumb_dowm
-                color rgb(147, 153, 159)
-          .no-rating
-            padding 16px 0
-            font-size 12px
-            color rgb(147, 153, 159)
+            .icon-thumb_up
+              color rgb(0, 160, 220)
+            .icon-thumb_dowm
+              color rgb(147, 153, 159)
+        .no-rating
+          padding 16px 0
+          font-size 12px
+          color rgb(147, 153, 159)
 </style>

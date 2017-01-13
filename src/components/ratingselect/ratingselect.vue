@@ -7,12 +7,12 @@
       <span class="block positive" :class="{'active': selectType === 0}" @click="select(0, $event)">
         {{desc.positive}}<span class="count">{{positives.length}}</span>
       </span>
-      <span class="block positive" :class="{'active': selectType === 1}" @click="select(1, $event)">
+      <span class="block negative" :class="{'active': selectType === 1}" @click="select(1, $event)">
         {{desc.negative}}<span class="count">{{negatives.length}}</span>
       </span>
     </div>
     <div class="switch" :class="{'on': onlyContent}">
-      <i class="icon-check_circle"></i>
+      <i class="icon-check_circle" @click="toggleContent"></i>
       <span class="text">只看有内容的评价</span>
     </div>
   </div>

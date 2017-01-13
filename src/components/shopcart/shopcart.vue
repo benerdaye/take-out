@@ -4,7 +4,7 @@
       <div class="content-left" :class="{'hightlight': totalCount > 0}">
         <div class="logo-wrapper">
           <div class="logo">
-            <i class="icon-shooping_cart"></i>
+            <i class="icon-shopping_cart"></i>
           </div>
           <div class="num" v-show="totalCount > 0">{{totalCount}}</div>
         </div>
@@ -232,7 +232,7 @@
           box-sizing border-box
           vertical-align top
           border-radius 50%
-          text-align top
+          text-align center
           background #141d27
           .logo
             width 100%
@@ -241,7 +241,7 @@
             background #2b343c
             .icon-shopping_cart
               line-height 44px
-              font-style 24px
+              font-size 24px
               color #80858a
           .num
             position absolute
@@ -252,7 +252,7 @@
             line-height 1
             text-align center
             border-radius 16px
-            font-style 9px
+            font-size 9px
             font-weight 700
             color #fff
             background rgb(240, 20, 20)

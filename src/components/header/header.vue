@@ -11,7 +11,7 @@
         </div>
 
       <div class="description">
-        {{seller.description}}/{{seller.name}}分钟送达
+        {{seller.description}}/{{seller.deliveryTime}}分钟送达
       </div>
       <div  v-if="seller.supports"class="support">
         <span class="icon" :class="classMap[seller.supports[0].type]"></span>
@@ -75,19 +75,24 @@
         type: Object
       }
     },
+    data () {
+      return {
+        detailShow: false
+      }
+    },
+    methods: {
+      showDetail () {
+        this.detailShow = true
+      },
+      hideDetail () {
+        this.detailShow = false
+      }
+    },
     created () {
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
     },
     components: {
       star
-    },
-    methods: {
-      showDetail () {
-        this.datailShow = true
-      },
-      hideDetail () {
-        this.detailShow = false
-      }
     }
   }
 </script>
@@ -111,7 +116,7 @@
           border-radius 2px
       .content
         display inline-block
-        margin-left 10px
+        margin-left 16px
         .title
           margin 2px 0 8px 0
           .brand
@@ -206,9 +211,10 @@
       height 100%
       z-index -1
       filter blur(10px)
-    .datail
+    .detail
       position fixed
       top 0
+      left 0
       z-index  100
       width 100%
       height 100%
@@ -243,10 +249,11 @@
             .line
               flex 1
               position relative
-              top 6px
+              top -5px
               border-bottom 1px solid rgba(255, 255, 255, .2)
             .text
               padding 0 12px
+              // inline-height:16px
               font-size 14px
               font-weight 700
           .supports
@@ -279,15 +286,23 @@
               .text
                 line-height 16px
                 font-size 12px
-            .bulletin
+          .bulletin
+            width 80%
+            height 30%
+            margin 0 auto
+            .content
+              line-height 24px
+              font-size 12px
               width 80%
-              margin 0 auto
-              .content
-                padding 0 12px
-                line-height 24px
-                font-size 12px
-      .detail-close
-        position relative
-        width 32px
-
+              height 100%
+    .detail-close
+      position fixed
+      bottom 65px
+      left 47%
+      z-index 500
+      width 32px
+      height 32px
+      margin 120% auto 0 auto
+      clear both
+      font-size 32px
 </style>

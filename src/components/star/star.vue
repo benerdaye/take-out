@@ -19,9 +19,9 @@
         type: Number
       }
     },
-    computd: {
+    computed: {
       starType () {
-        return `star-${this.size()}`
+        return `star-${this.size}`
       },
       itemClasses () {
         let result = []
@@ -43,17 +43,19 @@
   @import '../../common/stylus/mixin'
   .star
     font-size 0
+    width 100%
+    height 20px
     .star-item
       display inline-block
       background-repeat no-repeat
     &.star-48
       .star-item
         star-items(48, 22)
-    // &.star-36
-    //   .star-item
-    //     star-items(36, 6)
-    // &.star-24
-    //   .star-item
-    //     star-items(24, 3)
+    &.star-36
+      .star-item
+        star-items(36, 6)
+    &.star-24
+      .star-item
+        star-items(24, 3)
 
 </style>

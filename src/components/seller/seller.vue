@@ -141,7 +141,7 @@
       }
     },
     created () {
-      this.classMap = ['decrease', 'discount', 'spcial', 'invoice', 'guarantee']
+      this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
     },
     ready () {
       this._initScroll()
@@ -246,7 +246,7 @@
             height 16px
             vertical-align top
             margin-right 6px
-            background-size 16px 16px
+            background-size cover
             background-repeat no-repeat
             &.decrease
               bg-image('decrease_4')
