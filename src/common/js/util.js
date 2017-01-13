@@ -5,7 +5,7 @@ export function urlParse () {
   let arr = url.match(reg)
   if (arr) {
     arr.map((item) => {
-      let tempArr = item.substring(1).split(=)
+      let tempArr = item.substring(1).split('=')
       let key = decodeURIComponent(tempArr[0])
       let value = decodeURIComponent(tempArr[1])
       obj[key] = value
