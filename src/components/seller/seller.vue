@@ -66,7 +66,7 @@
       <div class="info">
         <h1 class="title border-1px">商家信息</h1>
         <ul>
-          <li v-for="info in seller.infos" class="indo-item">{{info}}</li>
+          <li v-for="info in seller.infos" class="info-item">{{info}}</li>
         </ul>
       </div>
     </div>
@@ -293,8 +293,8 @@
       .info-item
         padding 16px 12px
         line-height 16px
-        border-1px(rgba(7, 17, 27, 0.1))
         font-size 12px
+        border-1px(rgba(7, 17, 27, 0.1))
         &:last-child
           border-none()
 </style>

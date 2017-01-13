@@ -1,11 +1,11 @@
 <template>
   <div>
     <v-header :seller="seller"></v-header>
-    <div class="tab border-1px">
-      <a v-link="{path:'/goods'}">商品</a>
-      <a v-link="{path:'/ratings'}">评论</a>
-      <a v-link="{path:'/seller'}">商家</a>
-    </div>
+    <ul class="tab border-1px">
+      <li class="item"><a v-link="{path:'/goods'}">商品</a></li>
+      <li class="item"><a v-link="{path:'/ratings'}">评论</a></li>
+      <li class="item"><a v-link="{path:'/seller'}">商家</a></li>
+    </ul>
     <router-view :seller="seller"></router-view>
   </div>
 </template>
@@ -46,15 +46,21 @@ export default {
 
 .tab
   display flex
+  padding 0
   width 100%
   height 40px
   line-height 40px
   border-1px(rgba(7,17,27,0.1))
+  .item
+    float left
+    width 33%
+    text-align center
   .tab-item
     flex 1
     text-align center
     & > a
       display block
+      width 33%
       font-size 14px
       color rbg(77,85,93)
       &.active
