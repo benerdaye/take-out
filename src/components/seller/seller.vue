@@ -158,9 +158,11 @@
     left 0
     width 100%
     overflow hidden
+
     .overview
       position relative
-      padding 18px
+      margin  30px
+      margin-top 40px
       .title
         margin-bottom 8px
         line-height 14px
@@ -172,6 +174,7 @@
         font-size 0
         .star
           display inline-block
+          width 100px
           vertical-align top
           margin-right 8px
         .text
@@ -205,7 +208,7 @@
         position absolute
         width 50px
         right 11px
-        top 18px
+        top 0
         text-align center
         .icon-favorite
           display block

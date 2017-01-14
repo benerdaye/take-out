@@ -55,12 +55,9 @@ export default {
     float left
     width 33%
     text-align center
-  .tab-item
-    flex 1
-    text-align center
     & > a
       display block
-      width 33%
+      width 100%
       font-size 14px
       color rbg(77,85,93)
       &.active

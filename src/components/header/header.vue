@@ -56,11 +56,11 @@
           <div class="bulletin">
             <p class="content">{{seller.bulletin}}</p>
           </div>
+          <div class="detail-close" @click="hideDetail">
+            <i class="icon-close"></i>
+          </div>
         </div>
       </div>
-      </div>
-      <div class="detail-close" @click="hideDetail">
-        <i class="icon-close"></i>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@
     .content-wrapper
       position relative
       padding 24px 12px 18px 24px
-      font-size 0
+      // font-size 0
       .avatar
         display inline-block
         vertical-align top
@@ -288,21 +288,24 @@
                 font-size 12px
           .bulletin
             width 80%
-            height 30%
+            // height 30%
             margin 0 auto
             .content
               line-height 24px
               font-size 12px
-              width 80%
-              height 100%
-    .detail-close
-      position fixed
-      bottom 65px
-      left 47%
-      z-index 500
-      width 32px
-      height 32px
-      margin 120% auto 0 auto
-      clear both
-      font-size 32px
+              // padding 12px
+              // width 80%
+              // height 100%
+          .detail-close
+            display block
+            z-index 200
+            width 100%
+            height 80px
+            padding-top 40px
+            text-align center
+            clear both
+            font-size 32px
+
+
+
 </style>

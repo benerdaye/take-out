@@ -17,10 +17,10 @@
           <span class="now">￥{{food.price}}</span>
           <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
         </div>
-        <div class="cartcontrol-warpper">
+        <div class="cartcontrol-wrapper">
           <cartcontrol :food="food"></cartcontrol>
         </div>
-        <div class="buy" v-show="!food.count || food.count === 0" @click.stop.prevent="addFirst" transition="fade"></div>
+        <div class="buy" v-show="!food.count || food.count === 0" @click.stop.prevent="addFirst" transition="fade">加入购物车</div>
       </div>
       <split v-show="food.info"></split>
       <div class="info">
@@ -59,7 +59,9 @@
   import cartcontrol from 'components/cartcontrol/cartcontrol'
   import split from 'components/split/split'
   import ratingselect from 'components/ratingselect/ratingselect'
+
   const ALL = 2
+
   export default {
     props: {
       food: {
@@ -112,7 +114,7 @@
       split,
       ratingselect
     },
-    evebts: {
+    events: {
       'ratingtype.select' (type) {
         this.selectType = type
         this.$nextTick(() => {
@@ -210,11 +212,11 @@
         bottom 12px
       .buy
         position absolute
-        right 18px
-        bottom 18px
+        right 12px
+        bottom 12px
         z-index 10
-        height 24px
-        line-height 24px
+        height 30px
+        line-height 30px
         padding 0 12px
         box-sizing border-box
         border-radius 12px
@@ -224,7 +226,7 @@
         &.fade-transition
           transition all 0.2s
           opacity 1
-        &.fade-enter, &.fase-leave
+        &.fade-enter, &.fade-leave
           opacity 0
     .info
       padding 25px
